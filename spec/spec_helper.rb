@@ -1,12 +1,10 @@
-require "simplecov"
-SimpleCov.start do
-  add_filter "vendor"
-  add_filter "spec"
-end
-
 if ENV["CI"]
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
+  require "simplecov"
+
+  SimpleCov.start do
+    add_filter "vendor"
+    add_filter "spec"
+  end
 end
 
 dotenv_path = File.expand_path("../../.env", __FILE__)
